@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>430</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $("#email").keyup(function(){
+            if(validateEmail()){
+
+                $("#emailMsg").html("<p class='text-success'>Validated</p>");
+            }else{
+
+                $("#emailMsg").html("<p class='text-danger'>Un-validated</p>");
+            }
+            buttonState();
+        });
+
+    });
+
+    function validateEmail(){
+        var email=$("#email").val();
+        var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+        if(reg.test(email)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+</script>
+<body >
+
+<div id="container">
+    <div class="row" style="position: relative">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4 border shadow-sm bg-light" style="margin-top:8%;padding:10px;">
+            <div class="form-group">
+                <label>Enter email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" autocomplete="off" name="">
+                <span id="emailMsg"></span>
+            </div>
+
+            <div class="form-group">
+                <label>username:</label>
+                <input type="text" class="form-control" id="pass"  autocomplete="off" name="">
+                <span id="passMsg"></span>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" id="btn" style="position: absolute;bottom: 0px;right: 5px;width: 72px;height: 30px">Update</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+</body>
+</html>
